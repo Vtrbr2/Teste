@@ -9,8 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-
-    <style>
+        <style>
         :root {
             --primary-color: #5865F2;
             --secondary-color: #7c3aed;
@@ -240,6 +239,16 @@
             border-top: 1px solid var(--border-color);
         }
 
+          .fade-in {
+           opacity: 0;
+          transform: translateY(30px);
+           transition: all 0.8s ease-out;
+               }
+          .fade-in.visible {
+          opacity: 1;
+           transform: translateY(0);
+           }
+        
         @media (max-width: 768px) {
             .navbar {
                 flex-wrap: wrap;
@@ -275,8 +284,10 @@
         <div class="logo-container">
             <div class="logo">WF</div>
             <div class="logo-text">Web Factory</div>
-        </div>
-
+       </div>
+      
+        <div class="notification" id="notification"></div>
+        
         <div class="nav-links">
             <a class="nav-link active">Início</a>
             <a class="nav-link">Categorias</a>
@@ -295,23 +306,79 @@
     <section class="section">
         <h2>Templates Populares</h2>
          </section>
+<section class="section fade-in" id="servicos">
+    <h2>O Que Eu Posso Criar Para Você</h2>
+    <p>Transformo suas ideias em sites profissionais, rápidos e modernos.</p>
 
+    <div class="products-grid">
+        <div class="product-card">
+            <h3 class="product-title">Site Profissional</h3>
+            <p>Criação de sites completos com design personalizado, SEO otimizado e carregamento rápido.</p>
+        </div>
+
+        <div class="product-card">
+            <h3 class="product-title">Landing Pages</h3>
+            <p>Páginas únicas para campanhas, lançamento de produtos e captação de clientes.</p>
+        </div>
+
+        <div class="product-card">
+            <h3 class="product-title">Portfólios Pessoais</h3>
+            <p>Sites para profissionais autônomos, artistas e desenvolvedores mostrarem seu trabalho.</p>
+        </div>
+
+        <div class="product-card">
+            <h3 class="product-title">Sites com IA</h3>
+            <p>Integrações com ferramentas de inteligência artificial, chatbots e automações inteligentes.</p>
+        </div>
+
+        <div class="product-card">
+            <h3 class="product-title">Recriação de Sites</h3>
+            <p>Melhoria e reconstrução de sites antigos com tecnologia moderna e performance otimizada.</p>
+        </div>
+    </div>
+</section>
+    
     <footer class="footer">
         © 2025 AI Web Factory — Todos os direitos reservados.
     </footer>
 
     <div class="notification" id="notification">Mensagem</div>
 
+   
     <script>
-        
-           userAvatar.addEventListener("click", () => {
-            if (user && confirm(`Sair da conta de ${user.name}?`)) logout();
+    // ===== EFEITO DE SCROLL (fade-in nos cards e textos) =====
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+            }
         });
+    }, { threshold: 0.2 });
 
-        // Inicialização
-        renderProducts();
-        updateCartUI();
-        updateUserUI();
-    </script>
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // ===== FUNÇÃO DE NOTIFICAÇÃO VISUAL =====
+    function showNotification(message) {
+        const box = document.getElementById("notification");
+        if (!box) return;
+        box.textContent = message;
+        box.classList.add("show");
+        setTimeout(() => box.classList.remove("show"), 3000);
+    }
+
+    // ===== SCROLL SUAVE PARA SEÇÕES =====
+    function scrollToSection(id) {
+        const el = document.getElementById(id);
+        if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+            showNotification("Indo até " + id + "...");
+        }
+    }
+
+    // ===== MENSAGEM AUTOMÁTICA (exemplo) =====
+    window.addEventListener("load", () => {
+        showNotification("Bem-vindo à AI Web Factory 🚀");
+    });
+        </script>
 </body>
 </html>
