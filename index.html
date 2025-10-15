@@ -274,7 +274,7 @@
     <nav class="navbar">
         <div class="logo-container">
             <div class="logo">WF</div>
-            <div class="logo-text">SiteFactory</div>
+            <div class="logo-text">Web Factory</div>
         </div>
 
         <div class="nav-links">
@@ -288,14 +288,13 @@
     <section class="hero">
         <h1>Crie Seu Site Profissional em Minutos</h1>
         <p>Com nossa plataforma de IA, você tem um site personalizado e profissional em poucos cliques.</p>
-        <button class="btn btn-primary" id="exploreBtn">Explorar Templates</button>
-        <button class="btn btn-secondary" id="budgetBtn">Solicitar Orçamento</button>
+        <button href="#" class="btn btn-primary" id="exploreBtn">Explorar Templates</button>
+        <button href="#" class="btn btn-secondary" id="budgetBtn">Solicitar Orçamento</button>
     </section>
 
     <section class="section">
         <h2>Templates Populares</h2>
-        <div class="products-grid" id="productsGrid"></div>
-    </section>
+         </section>
 
     <footer class="footer">
         © 2025 AI Web Factory — Todos os direitos reservados.
@@ -304,99 +303,8 @@
     <div class="notification" id="notification">Mensagem</div>
 
     <script>
-        // === Dados de produtos ===
-        const products = [
-            { id: 1, name: "Salão de Beleza", price: 297 },
-            { id: 2, name: "Restaurante Gourmet", price: 347 },
-            { id: 3, name: "Consultório Médico", price: 397 },
-            { id: 4, name: "E-commerce Básico", price: 497 },
-            { id: 5, name: "Advocacia Premium", price: 447 },
-            { id: 6, name: "Escola Particular", price: 527 }
-        ];
-
-        const productsGrid = document.getElementById("productsGrid");
-        const notification = document.getElementById("notification");
-        const loginBtn = document.getElementById("loginBtn");
-        const userAvatar = document.getElementById("userAvatar");
-        const cartCount = document.getElementById("cartCount");
-
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
-        let user = JSON.parse(localStorage.getItem("user")) || null;
-
-        // === Exibir produtos ===
-        function renderProducts() {
-            productsGrid.innerHTML = "";
-            products.forEach(p => {
-                const card = document.createElement("div");
-                card.className = "product-card";
-                card.innerHTML = `
-                    <div class="product-title">${p.name}</div>
-                    <div class="product-price">R$ ${p.price}</div>
-                    <button class="btn btn-primary" onclick="addToCart(${p.id})">Comprar</button>
-                `;
-                productsGrid.appendChild(card);
-            });
-        }
-
-        // === Carrinho ===
-        function updateCartUI() {
-            cartCount.textContent = cart.reduce((s, i) => s + i.quantity, 0);
-            localStorage.setItem("cart", JSON.stringify(cart));
-        }
-
-        function addToCart(id) {
-            if (!user) return showNotification("Faça login para comprar!", true);
-            const product = products.find(p => p.id === id);
-            const existing = cart.find(i => i.id === id);
-            existing ? existing.quantity++ : cart.push({ ...product, quantity: 1 });
-            updateCartUI();
-            showNotification(`${product.name} adicionado ao carrinho!`);
-        }
-
-        // === Login persistente ===
-        function updateUserUI() {
-            if (user) {
-                loginBtn.style.display = "none";
-                userAvatar.textContent = user.name.charAt(0).toUpperCase();
-                userAvatar.title = `Logado como ${user.name}`;
-            } else {
-                loginBtn.style.display = "inline-block";
-                userAvatar.innerHTML = '<i class="fas fa-user"></i>';
-                userAvatar.title = "Entrar";
-            }
-        }
-
-        // === Login com Google (já existente) ===
-        function onSignIn(googleUser) {
-            const profile = googleUser.getBasicProfile();
-            user = { name: profile.getName(), email: profile.getEmail() };
-            localStorage.setItem("user", JSON.stringify(user));
-            updateUserUI();
-            showNotification(`Bem-vindo, ${user.name}!`);
-        }
-
-        // === Logout ===
-        function logout() {
-            localStorage.removeItem("user");
-            user = null;
-            updateUserUI();
-            showNotification("Você saiu da conta.");
-        }
-
-        // === Notificação ===
-        function showNotification(msg, error = false) {
-            notification.textContent = msg;
-            notification.style.background = error ? "#ef4444" : "var(--primary-color)";
-            notification.classList.add("show");
-            setTimeout(() => notification.classList.remove("show"), 2500);
-        }
-
-        // === Ações ===
-        loginBtn.addEventListener("click", () => {
-            showNotification("Usando login do Google acima ⬆️");
-        });
-
-        userAvatar.addEventListener("click", () => {
+        
+           userAvatar.addEventListener("click", () => {
             if (user && confirm(`Sair da conta de ${user.name}?`)) logout();
         });
 
