@@ -375,6 +375,35 @@
     window.addEventListener("load", () => {
         showNotification("Bem-vindo à AI Web Factory 🚀");
     });
-        </script>
+       // ===== LINKS DOS BOTÕES E MENU SUPERIOR =====
+
+// Botões principais
+document.getElementById("exploreBtn").addEventListener("click", () => {
+    window.open("https://seusite.com/templates", "_blank"); // link para página de templates
+    showNotification("Abrindo templates...");
+});
+
+document.getElementById("budgetBtn").addEventListener("click", () => {
+    window.open("https://seusite.com/orcamento", "_blank"); // link para orçamento
+    showNotification("Abrindo página de orçamento...");
+});
+
+// Navbar - Início
+document.querySelector('.nav-link:nth-child(1)').addEventListener('click', () => {
+    window.open("https://seusite.com", "_self"); // abre na mesma aba
+});
+
+// Navbar - Categorias
+document.querySelector('.nav-link:nth-child(2)').addEventListener('click', () => {
+    window.open("https://seusite.com/categorias", "_self");
+});
+
+// Navbar - Contato
+document.querySelector('.nav-link:nth-child(3)').addEventListener('click', () => {
+    window.open("https://seusite.com/contato", "_self");
+});
+    
+       </script>
+
 </body>
 </html>
