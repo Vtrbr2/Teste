@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id" content="641031367970-hm9eag8mut8vmem2pc047rlds0ocfq2r.apps.googleusercontent.com">
+    <title>AI Web Factory - Venda de Sites Profissionais</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <style>
+        :root {
+            --primary-color: #5865F2;
+            --secondary-color: #7c3aed;
+            --bg-dark: #0D0F1A;
+            --bg-light: #161827;
+            --text-primary: #FFFFFF;
+            --text-secondary: #a0a3bd;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --radius: 12px;
+        }
+
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        /* === NAVBAR === */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(13, 15, 26, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 0.8rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .logo {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 10px;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .logo-text {
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.2rem;
+        }
+
+        .nav-link {
+            cursor: pointer;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--text-primary);
+        }
+
+        .right-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -6px;
+            right: -8px;
+            background: #ef4444;
+            color: white;
+            font-size: 0.7rem;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .user-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .login-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            padding: 0.5rem 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .login-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* === HERO === */
+        .hero {
+            text-align: center;
+            padding: 3.5rem 1rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            padding: 0.6rem 1.4rem;
+            border-radius: 30px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            border: 1px solid var(--border-color);
+        }
+
+        /* === PRODUCTS === */
+        .section {
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: rgba(22, 24, 39, 0.8);
+            border-radius: var(--radius);
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .product-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer {
+            text-align: center;
+            color: var(--text-secondary);
+            padding: 2rem;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Notification */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: 0.3s;
+            z-index: 1001;
+        }
+
+        .notification.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo-container">
+            <div class="logo">WF</div>
+            <div class="logo-text">Web Factory</div>
+        </div>
+      
+        <div class="nav-links">
+            <a class="nav-link active" href="#inicio">Início</a>
+            <a class="nav-link" href="#servicos">Serviços</a>
+            <a class="nav-link" href="#contato">Contato</a>
+        </div>
+        
+        <div class="right-actions">
+            <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </div>
+            <div class="user-avatar">
+                <i class="fas fa-user"></i>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="inicio">
+        <h1>Crie Seu Site Profissional em Minutos</h1>
+        <p>Com nossa plataforma de IA, você tem um site personalizado e profissional em poucos cliques.</p>
+        <a href="#servicos" class="btn btn-primary">Explorar Templates</a>
+        <a href="#contato" class="btn btn-secondary">Solicitar Orçamento</a>
+    </section>
+
+    <section class="section">
+        <h2>Veja abaixo 👇🏻</h2>
+    </section>
+
+    <section class="section fade-in" id="servicos">
+        <h2>Nossos Serviços</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <h3 class="product-title">Site Profissional</h3>
+                <p>Criação de sites completos com design personalizado, SEO otimizado e carregamento rápido.</p>
+                <div class="product-price">A partir de R$ 499</div>
+            </div>
+
+            <div class="product-card">
+                <h3 class="product-title">Landing Pages</h3>
+                <p>Páginas únicas para campanhas, lançamento de produtos e captação de clientes.</p>
+                <div class="product-price">A partir de R$ 299</div>
+            </div>
+
+            <div class="product-card">
+                <h3 class="product-title">Portfólios Pessoais</h3>
+                <p>Sites para profissionais autônomos, lojas pequenas, para as pessoas mostrarem seu negócio.</p>
+                <div class="product-price">A partir de R$ 399</div>
+            </div>
+
+            <div class="product-card">
+                <h3 class="product-title">Recriação de Sites</h3>
+                <p>Melhoria e reconstrução de sites antigos com tecnologia moderna e performance otimizada.</p>
+                <div class="product-price">A partir de R$ 349</div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section" id="contato">
+        <h2>Entre em Contato</h2>
+        <p>Tem um projeto em mente? Vamos conversar!</p>
+        <a href="mailto:contato@webfactory.com" class="btn btn-primary">Enviar E-mail</a>
+    </section>
+    
+    <footer class="footer">
+        © 2025 AI Web Factory — Todos os direitos reservados.
+    </footer>
+
+    <div class="notification" id="notification"></div>
+
+    <script>
+        // ===== EFEITO DE SCROLL (fade-in nos cards e textos) =====
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // ===== FUNÇÃO DE NOTIFICAÇÃO VISUAL =====
+        function showNotification(message) {
+            const box = document.getElementById("notification");
+            if (!box) return;
+            box.textContent = message;
+            box.classList.add("show");
+            setTimeout(() => box.classList.remove("show"), 3000);
+        }
+
+        // ===== SCROLL SUAVE PARA SEÇÕES =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    showNotification("Indo até " + targetId.substring(1) + "...");
+                }
+            });
+        });
+
+        // ===== MENSAGEM AUTOMÁTICA (exemplo) =====
+        window.addEventListener("load", () => {
+            showNotification("Bem-vindo à AI Web Factory 🚀");
+        });
+
+        // ===== ATUALIZAR NAVBAR ATIVA =====
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
