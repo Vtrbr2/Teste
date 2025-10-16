@@ -8,6 +8,43 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+   
+    
+    
+    <script>
+    // Bloquear F12, Ctrl+Shift+I, Ctrl+Shift+C, Ctrl+Shift+J
+    document.addEventListener("keydown", function(e) {
+        if (
+            e.key === "F12" || 
+            (e.ctrlKey && e.shiftKey && ["I","C","J"].includes(e.key.toUpperCase())) ||
+            (e.ctrlKey && e.key.toUpperCase() === "U") // bloquear Ctrl+U (ver código-fonte)
+        ) {
+            e.preventDefault();
+            alert("Essa ação está desativada!");
+        }
+    });
+
+    // Bloquear clique direito
+    document.addEventListener("contextmenu", function(e) {
+        e.preventDefault();
+        alert("Clique direito desativado!");
+    });
+
+    // Bloquear seleção de texto
+    document.addEventListener("selectstart", function(e) {
+        e.preventDefault();
+    });
+
+    // Bloquear copiar (Ctrl+C)
+    document.addEventListener("copy", function(e) {
+        e.preventDefault();
+        alert("Copiar conteúdo não é permitido!");
+    });
+        </script>
+
+
+
+    
     <style>
         :root {
             --primary-color: #5865F2;
