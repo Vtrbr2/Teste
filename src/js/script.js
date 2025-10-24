@@ -186,28 +186,16 @@ document.querySelectorAll('.faq-question').forEach(button => {
         
         
         //====troca de tema====
-    const toggleBtn = document.getElementById("theme-toggle");
-    const currentTheme = localStorage.getItem("theme");
+    // Ao carregar a página
+const savedTheme = localStorage.getItem('dark-theme') === 'true';
+themeSwitch.checked = savedTheme;
+document.body.classList.toggle('dark-theme', savedTheme);
 
-    // Verifica se o tema foi salvo anteriormente
-    if (currentTheme === "dark") {
-        document.body.classList.add("dark-mode");
-        toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
-    }
-
-    // Alternar tema ao clicar
-    toggleBtn.addEventListener("click", () => {
-        document.body.classList.toggle("dark-mode");
-
-        // Atualiza o ícone
-        const isDark = document.body.classList.contains("dark-mode");
-        toggleBtn.innerHTML = isDark 
-            ? '<i class="fas fa-sun"></i>' 
-            : '<i class="fas fa-moon"></i>';
-
-        // Salva a escolha no navegador
-        localStorage.setItem("theme", isDark ? "dark" : "light");
-    });
+// Ao mudar o switch
+themeSwitch.addEventListener('change', () => {
+  document.body.classList.toggle('dark-theme', themeSwitch.checked);
+  localStorage.setItem('dark-theme', themeSwitch.checked);
+});
 
 
 
