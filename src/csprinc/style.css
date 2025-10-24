@@ -1205,21 +1205,19 @@ text-decoration: none;
 /*video footer*/
 
 
-/* Container do vídeo precisa estar dentro do footer ou do rodapé desejado */
 .footer-video-logo {
-  position: absolute;  /* relativo ao contêiner pai posicionado */
-  bottom: 10px;        /* distância do rodapé do contêiner */
-  right: 10px;         /* distância da lateral direita */
-  width: 60px;         /* tamanho do círculo */
-  height: 60px;        /* altura igual à largura para formar círculo */
-  border-radius: 50%;  /* deixa o vídeo redondo */
-  overflow: hidden;    /* recorta o vídeo dentro do círculo */
-  box-shadow: 0 0 10px rgba(0,0,0,0.5); /* sombra opcional */
-  z-index: 10;         /* garante que fique acima do conteúdo */
+  display: inline-block; /* mantém o vídeo no fluxo do conteúdo */
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  vertical-align: middle; /* alinha com links de texto se quiser */
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  margin-top: 10px; /* espaço entre links e vídeo */
 }
 
 .footer-video-logo video {
   width: 100%;
   height: 100%;
-  object-fit: cover;    /* mantém proporção e preenche o círculo */
+  object-fit: cover;
 }
