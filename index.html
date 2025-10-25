@@ -15,38 +15,6 @@
     
     <!--aqui começa o bloqueador de f12 e possivelmente cópias-->
     
-    <script>
-    // Bloquear F12, Ctrl+Shift+I, Ctrl+Shift+C, Ctrl+Shift+J
-    document.addEventListener("keydown", function(e) {
-        if (
-            e.key === "F12" || 
-            (e.ctrlKey && e.shiftKey && ["I","C","J"].includes(e.key.toUpperCase())) ||
-            (e.ctrlKey && e.key.toUpperCase() === "U") // bloquear Ctrl+U (ver código-fonte)
-        ) {
-            e.preventDefault();
-            alert("Essa ação está desativada!");
-        }
-    });
-
-    // Bloquear clique direito
-    document.addEventListener("contextmenu", function(e) {
-        e.preventDefault();
-        alert("Não tenta me copiar einn🫢!");
-    });
-
-    // Bloquear seleção de texto
-    document.addEventListener("selectstart", function(e) {
-        e.preventDefault();
-    });
-
-    // Bloquear copiar (Ctrl+C)
-    document.addEventListener("copy", function(e) {
-        e.preventDefault();
-        alert("Copiar conteúdo não é permitido!");
-    });
-       
-    </script>
-    
 <!--aqui acaba o bloqueador de f12 e cópias-->
 <!--made by: vitor o tal do cryptitys-->   
 <!-- Aqui começa o css do site       
@@ -260,7 +228,7 @@ aqui acaba o css do site-->
     
 
     <!--Javascript do site-->
-    <script src="src/js/script.js"></script>
+    <script src="script.js"></script>
       
  
      </body>
