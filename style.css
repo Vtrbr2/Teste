@@ -1,0 +1,874 @@
+   
+        :root {
+            --primary-color: #5865F2;
+            --secondary-color: #7c3aed;
+            --bg-dark: #0D0F1A;
+            --bg-light: #161827;
+            --text-primary: #FFFFFF;
+            --text-secondary: #a0a3bd;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --radius: 12px;
+        }
+
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        /* === NAVBAR === */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          background: rgba(13, 15, 26, 0.9); 
+            backdrop-filter: blur(10px);
+            padding: 0.8rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .logo {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 10px;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .logo-text {
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.2rem;
+        }
+
+        .nav-link {
+            cursor: pointer;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--text-primary);
+        }
+
+        .right-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -6px;
+            right: -8px;
+            background: #ef4444;
+            color: white;
+            font-size: 0.7rem;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .user-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .login-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            padding: 0.5rem 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .login-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* === HERO === */
+        .hero {
+            text-align: center;
+            padding: 3.5rem 1rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            padding: 0.6rem 1.4rem;
+            border-radius: 30px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0 0.5rem 10px 0.5rem; /* 👈 adiciona 10px de espaço abaixo */
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            border: 1px solid var(--border-color);
+        }
+
+        /*=== nossos serviços === */
+        .section {
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: rgba(22, 24, 39, 0.8);
+            border-radius: var(--radius);
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .product-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+       } 
+
+/*==≈=== avatar la do topo do site =====*/
+        .user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0; /* cor de fundo de segurança */
+}
+
+.user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* mantém a proporção sem distorcer */
+}
+        
+
+        .footer {
+            text-align: center;
+            color: var(--text-secondary);
+            padding: 2rem;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Notification */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: 0.3s;
+            z-index: 1001;
+        }
+
+        .notification.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    
+/* ===== FAQ SECTION ===== */
+.faq-section {
+    padding: 80px 20px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    text-align: center;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.faq-section h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.faq-item {
+    background: var(--card-bg);
+    border-radius: 10px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .faq-item {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.faq-item:hover {
+    border-color: var(--primary-color);
+}
+
+.faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.faq-question i {
+    transition: transform 0.3s ease;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    background: var(--bg-color);
+    padding: 0 20px;
+    transition: all 0.4s ease;
+    color: var(--text-color);
+}
+
+body.dark-mode .faq-answer {
+    background: #1d222b; /* leve destaque no escuro */
+    color: #ccc;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 300px;
+    padding: 15px 20px 25px;
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+    }
+/* ===== FORMULÁRIO DE DEPOIMENTOS ===== 
+.add-testimonial-section {
+    background: #0d0d0d;
+    color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.add-testimonial-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 30px;
+}
+
+#testimonialForm {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#testimonialForm input,
+#testimonialForm textarea {
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: none;
+    background: #1a1a1a;
+    color: #fff;
+    font-size: 1rem;
+}
+
+#testimonialForm textarea {
+    min-height: 100px;
+    resize: none;
+}
+
+#testimonialForm input:focus,
+#testimonialForm textarea:focus {
+    outline: 2px solid var(--primary-color);
+}
+
+#testimonialForm button {
+    background: var(--primary-color);
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#testimonialForm button:hover {
+    background: var(--secondary-color);
+} desativado, nn deu certo aff kkkk*/
+
+/* ===== BOTÃO DE TROCA DE TEMA ===== */
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.4rem;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* ===== TEMAS ===== */
+/*:root {
+    --bg-color: #ffffff;
+    --text-color: #111111;
+    --nav-bg: #f3f3f3;
+    --card-bg: #f8f8f8;
+}
+
+body.dark-mode {
+    --bg-color: #0d1117;
+    --text-color: #e6edf3;
+    --nav-bg: #161b22;
+    --card-bg: #1d222b;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}*/
+
+        /* ===== TEMAS ===== */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #111111;
+  --nav-bg: #f3f3f3;
+  --card-bg: #f8f8f8;
+}
+
+body.dark-mode {
+  --bg-color: #0d0f1a;
+  --text-color: #ffffff;
+  --nav-bg: #161b22;
+  --card-bg: #1d222b;
+}
+
+/* aplica as cores de tema */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.3s, color 0.3s;
+}
+
+.navbar {
+  background-color: var(--nav-bg);
+}
+
+.product-card {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+        }
+/* Ajuste da navbar e cartões */
+.navbar {
+    background-color: var(--nav-bg);
+    transition: background-color 0.3s ease;
+}
+
+.product-card {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+/*Botao flutuante WhatsApp by vitorrrr*/
+.WhatsApp-flot{
+position:fixed;
+width:60px;
+height:60px;
+bottom:40px;
+right:40px;
+background-color:#25d366;
+color:#FFF;
+border-radius:50px;
+text-align:center;
+font-size:30px;
+box-shadow: 1px 1px 2px #888;
+z-index:1000;
+align-items: center;
+justify-content: center;
+display: flex;
+text-decoration: none;
+}
+/* Ajustes para permitir arrastar e aparência ao arrastar */
+.WhatsApp-flot {
+  touch-action: none;       /* importante: impede o comportamento nativo de scroll ao arrastar */
+  cursor: grab;
+  transition: box-shadow 0.15s ease;
+  /* se tiver right/bottom no CSS original, o JS vai sobrescrever para usar left/top */
+}
+
+.WhatsApp-flot.dragging {
+  cursor: grabbing;
+  box-shadow: 6px 8px 20px rgba(0,0,0,0.35);
+  transition: none; /* remove transições durante o drag para ficar responsivo */
+   }
+
+
+/* Botão flutuante WhatsApp by vitorrrr 
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #25d366;
+  color: #FFF;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 1px 1px 2px #888;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+ } */
+
+        /*Nav bar by vitorrrr*/
+        /* ===== NAVBAR ===== */
+ /* .nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.2rem;
+  background: var(--bg-dark, #0d0d0d);
+  color: #fff;
+  padding: 14px 25px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Links da navbar */
+/*.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--primary-color, #74C0FC);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background: var(--primary-color, #74C0FC);
+  transition: 0.3s;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* ===== BOTÃO DE TEMA ===== */
+.theme-toggle {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: #74C0FC;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.theme-toggle:hover {
+  color: #fff;
+  transform: scale(1.15);
+}
+
+/* ===== BOTÃO DO MENU LATERAL ===== */
+#menu-btn {
+  position: fixed;
+  top: 14px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 1100;
+  font-size: 1.5rem;
+  transition: transform 0.3s;
+}
+
+#menu-btn:hover {
+  transform: scale(1.15);
+}
+
+/* ===== SIDEBAR ===== */
+/* .sidebar {
+  position: fixed;
+  top: 0;
+  right: -270px;
+  width: 250px;
+  height: 100vh;
+  background: rgba(15, 15, 15, 0.97);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  padding: 25px 20px;
+  transition: right 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 2000;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.4);
+}
+
+.sidebar.open {
+  right: 0;
+}
+
+.sidebar a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.05rem;
+  padding: 10px 12px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  background: rgba(116, 192, 252, 0.1);
+  color: var(--primary-color, #74C0FC);
+}
+
+.close-btn {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  color: #74C0FC;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.close-btn:hover {
+  transform: rotate(90deg);
+        } */
+        /*Deus está vendo,  nao roube um projetoque nao é seu, roubar é pecado e crime*/
+ 
+     
+     
+     /*tentativa principal do nav bar, suas funções reais*/
+   /* Estilo do ícone da barra */
+/* Ícone do menu */
+/* Ícone do menu */
+.fa-notdog-duo {
+    cursor: pointer;
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+    z-index: 1100;
+    position: relative;
+}
+
+.fa-notdog-duo:hover {
+    color: var(--secondary-color);
+}
+
+/* Ícone gira quando ativo */
+.fa-notdog-duo.active {
+    transform: rotate(90deg);
+}
+
+/* Sidebar compacta, só até os links */
+.sidebar {
+    position: fixed;
+    top: 80px; /* desce um pouco da parte superior */
+    left: -260px;
+    width: 230px;
+    background: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: left 0.35s ease;
+    z-index: 1000;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    margin: 0 0.5rem 10px 0.5rem; /* 👈 adiciona 10px de espaço abaixo */
+}
+
+/* Sidebar visível */
+.sidebar.active {
+    left: 20px;
+}
+
+/* Botão de fechar */
+.close-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.4rem;
+    align-self: flex-end;
+    cursor: pointer;
+    margin-bottom: 0.8rem;
+}
+
+/* Links da sidebar */
+.sidebar a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.4s ease, transform 0.4s ease, color 0.2s;
+}
+
+/* Links aparecem em sequência */
+.sidebar.active a {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: calc(var(--i) * 0.3s);
+}
+
+/* Hover com cor de destaque */
+.sidebar a:hover {
+    color: var(--secondary-color);
+        }
+  
+/*tela de carregamento*/    
+    
+ /* ===== TELA DE CARREGAMENTO ===== */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-dark);
+    display: none; /* começa escondido */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 2000;
+}
+
+#loading-screen.active {
+    display: flex;
+    animation: fadeIn 0.3s ease forwards;
+}
+
+/* Conteúdo do loading */
+.loading-content img {
+    width: 120px;
+    height: auto;
+    margin-bottom: 20px;
+    filter: brightness(0.9);
+}
+
+.loading-content p {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+/* Animação de fade-in */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}   
+ /*VITOR? EU MSM HAHAHAH, EU SOU UM GENIO*/   
+     /* ===== Footer ===== */
+/*ja tem la em cima*/
+
+/* ===== Ícones Sociais ===== */
+.social-icons {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 18px; /* espaço entre ícones */
+}
+
+.social-icons a {
+    color: var(--text-primary);
+    font-size: 1.3rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Efeitos ao passar o mouse */
+.social-icons a:hover {
+    color: var(--secondary-color);
+    transform: translateY(-3px);
+}     
+           
+   /* Links de rodapé (Termos e Política) */
+.footer-links {
+  display: flex;
+  justify-content: center; /* centraliza horizontalmente */
+  align-items: center;
+  flex-wrap: wrap; /* quebra linha se for necessário */
+  gapfo: 10px; /* espaço entre os links */
+  margin-top: 15px;
+}
+
+.footer-link,
+.footer-link2 {
+  color: #444;
+  text-decoration: none;
+  font-size: 1rem; /* aumenta tamanho do texto */
+  padding: 8px 14px; /* aumenta área clicável */
+  border-radius: 6px; /* bordas suaves */
+  transition: all 0.3s ease;
+}
+
+.footer-link:hover,
+.footer-link2:hover {
+  color: #000;
+  background-color: #f2f2f2; /* leve destaque no hover */
+  text-decoration: underline;
+   }
+
+/*Cookies*/
