@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id" content="641031367970-hm9eag8mut8vmem2pc047rlds0ocfq2r.apps.googleusercontent.com">
+    <title>AI Web Factory - Venda de Sites Profissionais</title>
+    <!--chama o css do site-->
+    <link rel="stylesheet" href="src/csprinc/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+
+    
+    <!--aqui começa o bloqueador de f12 e possivelmente cópias-->
+    
+    <script>
+    // Bloquear F12, Ctrl+Shift+I, Ctrl+Shift+C, Ctrl+Shift+J
+    document.addEventListener("keydown", function(e) {
+        if (
+            e.key === "F12" || 
+            (e.ctrlKey && e.shiftKey && ["I","C","J"].includes(e.key.toUpperCase())) ||
+            (e.ctrlKey && e.key.toUpperCase() === "U") // bloquear Ctrl+U (ver código-fonte)
+        ) {
+            e.preventDefault();
+            alert("Essa ação está desativada!");
+        }
+    });
+
+    // Bloquear clique direito
+    document.addEventListener("contextmenu", function(e) {
+        e.preventDefault();
+        alert("Não tenta me copiar einn🫢!");
+    });
+
+    // Bloquear seleção de texto
+    document.addEventListener("selectstart", function(e) {
+        e.preventDefault();
+    });
+
+    // Bloquear copiar (Ctrl+C)
+    document.addEventListener("copy", function(e) {
+        e.preventDefault();
+        alert("Copiar conteúdo não é permitido!");
+    });
+       
+    </script>
+    
+<!--aqui acaba o bloqueador de f12 e cópias-->
+<!--made by: vitor o tal do cryptitys-->   
+<!-- Aqui começa o css do site       
+<style>
+</style>
+aqui acaba o css do site-->       
+<!--aqui começa o site, desde a cabeça👻-->
+
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo-container">
+            <div class="logo">WF</div>
+            <div class="logo-text">Web Factory</div>
+        </div>
+      
+        <div class="nav-links">
+            <a class="nav-link active" href="#inicio">Início</a>
+            <a class="nav-link" href="#servicos">Serviços</a>
+            <button id="theme-toggle" class="theme-toggle">
+            <i class="fas fa-moon"></i>
+          </button>
+        </div>
+
+
+        <!-- Nav bar / ícone de menu -->
+<div>
+    <i class="fa-notdog-duo fa-solid fa-bars fa-rotate-180 fa-2sm" 
+        style="--fa-primary-color: #74C0FC; --fa-secondary-color: #74C0FC;"></i>
+</div>
+
+<!-- Sidebar / menu lateral -->
+<aside id="sidebar" class="sidebar">        
+    <button id="close-sidebar" class="close-btn">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+    <a href="#inicio" style="--i:0">🏠 Início</a>
+    <a href="https://sobre.onrender.com/" style="--i:1">📚Sobre</a>
+    <a href="#contato" style="--i:2">📞 Contato</a>
+</aside>
+      <!--aqui acaba a nav bar 🫠-->  
+
+       <!--avatar que ficava la no topo
+         <div class="user-avatar">
+    <img src="https://avatars.githubusercontent.com/u/215417542?v=4" alt="Foto do usuário"> 
+            </div> -->
+   </nav>
+    
+    <section class="hero" id="inicio">
+        <h1>Obtenha Seu Site Profissional a partir de 10 R$</h1>
+        <p>Com os nossos serviços, você tem um site personalizado e profissional e mais, obtenha visibilidade do seu negócio ao mundo 🌏.</p>
+        <a href="https://templates-rmc2.onrender.com" id="explorar-btn" class="btn btn-primary">Explorar Templates</a>
+        <a href="https://api.whatsapp.com/send?phone=5516997454758&text=Olá. Desejo um orçamento." class="btn btn-secondary">Solicitar Orçamento</a>
+  
+ 
+        <!-- Tela de carregamento -->
+<div id="loading-screen">
+    <div class="loading-content">
+        <img src="src/load/ikloAZeyTPhnXIJtTI.webp" alt="Carregando...">
+        <p>Carregando Templates...</p>
+    </div>
+</div>
+
+    </section>
+
+    
+    
+     <!--nova seção/ hero-->
+    <section class="section">
+               <h2>Veja abaixo 👇🏻</h2>
+         </section>
+
+    <section class="section fade-in" id="servicos">
+         <h2>Nossos Serviços</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                   <h3 class="product-title">Site Profissional</h3>
+                      <p>Criação de sites completos com design personalizado, SEO otimizado e carregamento rápido + Dominio.</p>
+                  <div class="product-price">Com Desconto, Oferta ilimitada</div>
+            </div>
+
+            <div class="product-card">
+                <h3 class="product-title">Landing Pages</h3>
+                <p>Páginas únicas para campanhas, lançamento de produtos e captação de clientes.</p>
+                <div class="product-price">A partir de R$ 20,00</div>
+            </div>
+
+            <div class="product-card">
+                <h3 class="product-title">Portfólios Pessoais</h3>
+                <p>Sites para profissionais autônomos, lojas pequenas, para as pessoas mostrarem seu negócio.</p>
+                <div class="product-price">A partir de 70,00 C/ Descontos!</div>
+            </div>
+
+            <div class="product-card">
+                <h3 class="product-title">Recriação de Sites</h3>
+                <p>Melhoria e reconstrução de sites antigos com tecnologia moderna e performance otimizada.</p>
+                <div class="product-price">A partir de R$30,00</div>
+            </div>
+              
+            <div class="product-card">
+                <h3 class="product-title">Landing Pages 2.0 </h3>
+                <p>Páginas únicas onde voce pode ter o que quiser personalizado.</p>
+                <div class="product-price">A partir de um valor combinado</div>
+            </div>
+            
+      </section> 
+  
+   <!--Whatsapp icon flutuante-->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<a href="https://api.whatsapp.com/send?phone=5516997454758&text=Olá. Desejo um orçamento personalizado!"
+    class="WhatsApp-flot"target="_blank">
+<i  class="fa fa-whatsapp"></i>
+</a>     
+
+    
+    <!--Seçao faq / perguntas frequentes-->          
+             <section class="faq-section fade-in" id="faq">
+    <h2>Perguntas Frequentes (FAQ)</h2>
+
+    <div class="faq-container">
+
+        <div class="faq-item">
+            <button class="faq-question">
+                <span>💡 Como funciona a criação de um site pela AI Web Factory?</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <p>Você escolhe o tipo de site, envia suas preferências e nossa IA cria o design personalizado automaticamente. Depois, fazemos os ajustes finais juntos!</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                <span>⏱️ Quanto tempo leva para o site ficar pronto?</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <p>Em média, entre 24 e 48 horas após o envio das informações necessárias, dependendo da complexidade do projeto.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                <span>💰 Posso pagar parcelado?</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <p>Sim! Aceitamos pagamentos via Pix, cartão de crédito, boleto e outras formas. Parcelamentos podem ser combinados diretamente pelo WhatsApp.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                <span>🔒 Vocês oferecem suporte após a entrega?</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <p>Sim, oferecemos suporte técnico gratuito durante o contrato após a entrega e planos adicionais de manutenção mensal, caso deseje.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                <span>🧠 É possível integrar IA no meu site?</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <p>Claro! Podemos adicionar chatbots inteligentes, assistentes automáticos e até sistemas com ideias integradas, sob demanda.</p>
+            </div>
+        </div>
+
+    </div>
+    </section>
+                
+
+    <!--notificaçao que aparece quando reinicia o site -->
+        <div class="notification" id="notification"></div>
+
+   
+    
+    
+    
+
+    <!--Entre em contato-->
+    <section class="section" id="contato">
+        <h2>Entre em Contato</h2>
+        <p>Tem um projeto em mente? Vamos conversar!</p>
+        <a href="https://api.whatsapp.com/send?phone=5516997454758&text=Olá. Tenho uma ideia, vamos combinar!" class="btn btn-primary">Entre aqui</a>
+    </section>
+
+
+    
+  
+    
+ 
+    <!--Footer--> 
+    <footer class="footer">
+        © 2025 AI Web Factory — Todos os direitos reservados.
+      <p>by cryptitys / ヴィクター </p>
+    <div class="social-icons">
+    <a href="https://www.instagram.com/aiwebfactory_25?igsh=MXZtand4b2ZkcGRlaQ==" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+    <a href="https://facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+    <a href="https://github.com/" target="_blank"><i class="fa-brands fa-github"></i></a>
+  </div>
+  <div class="footer-links">
+        <a href="https://pol-tica-rfml.onrender.com" class="footer-link">Política de Privacidade</a>
+    <a href="https://termos-condicoes.onrender.com" class="footer-link2">termos & condições</a>
+  </div>
+    </footer>
+    
+
+    <!--Javascript do site-->
+    <script src="src/js/script.js"></script>
+      
+ 
+     </body>
+ </html>
